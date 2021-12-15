@@ -1,13 +1,17 @@
 const express = require('express');
 const axios = require('axios');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
 
+// Cross Origin Sharing:
+app.use(cors());
+
 // Middleware configurations:
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
     res.send("Welcome to your App!");
